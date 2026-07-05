@@ -100,5 +100,4 @@ npm run lint     # Run linting
 
 ## License
 
-No license has been selected yet. Add a `LICENSE` file before publishing if you
-want others to reuse, modify, or distribute the project.
+This is free and unencumbered software released into the public domain.
