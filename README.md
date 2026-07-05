@@ -18,7 +18,7 @@ sponsored by the U.S. Navy, OAR, ASTB, or any testing body.
   algebra, probability, combinatorics, word problems, geometry, logarithms,
   matrices, exponents, and applied problems.
 - Includes 500+ practice questions organized by topic and subtopic.
-- Includes 190+ test-style questions from practice-test-style material.
+- Includes 200+ test-style questions from practice-test-style material.
 - Provides hints and explanations so you can work through problems instead of
   only guessing.
 - Tracks performance by subtopic so you can see what you have mastered and what
