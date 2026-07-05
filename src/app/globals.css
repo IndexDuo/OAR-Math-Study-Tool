@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* Light theme (default) */
+  :root {
+    color-scheme: light;
+
+    --navy-950: 248 250 252; /* page background — slate-50 */
+    --navy-900: 255 255 255; /* sidebar — white */
+    --navy-800: 255 255 255; /* card surface — white */
+    --navy-700: 241 245 249; /* subtle elevated — slate-100 */
+
+    --accent-teal: 14 116 144;  /* darker teal for contrast on light */
+    --accent-green: 5 150 105;
+    --accent-amber: 180 83 9;
+    --accent-red: 185 28 28;
+
+    --ink-primary: 15 23 42;    /* slate-900 */
+    --ink-secondary: 51 65 85;  /* slate-700 */
+    --ink-muted: 100 116 139;   /* slate-500 */
+
+    --line: 226 232 240;        /* slate-200 borders/dividers */
+    --hover: 241 245 249;       /* slate-100 hover surface */
+
+    --scrollbar-track: 241 245 249;
+    --scrollbar-thumb: 203 213 225;
+    --scrollbar-thumb-hover: 148 163 184;
+  }
+
+  /* Dark theme */
+  .dark {
+    color-scheme: dark;
+
+    --navy-950: 15 23 42;
+    --navy-900: 27 42 74;
+    --navy-800: 30 41 59;
+    --navy-700: 45 67 115;
+
+    --accent-teal: 6 182 212;
+    --accent-green: 16 185 129;
+    --accent-amber: 245 158 11;
+    --accent-red: 239 68 68;
+
+    --ink-primary: 248 250 252;
+    --ink-secondary: 203 213 225;
+    --ink-muted: 148 163 184;
+
+    --line: 40 55 85;
+    --hover: 51 65 90;
+
+    --scrollbar-track: 15 23 42;
+    --scrollbar-thumb: 51 65 85;
+    --scrollbar-thumb-hover: 71 85 105;
+  }
+
+  html,
+  body {
+    background-color: rgb(var(--navy-950));
+    color: rgb(var(--ink-primary));
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+  }
+
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  }
+
+  /* Accessibility: visible focus rings for keyboard users. */
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent-teal));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: rgb(var(--accent-teal));
+    color: rgb(var(--navy-950));
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl border border-line bg-navy-800 p-5 shadow-lg shadow-black/10 dark:shadow-black/20;
+  }
+
+  .card-hover {
+    @apply transition-all duration-200 hover:-translate-y-0.5 hover:border-accent-teal/30 hover:shadow-accent-teal/10;
+  }
+
+  .btn {
+    @apply inline-flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-semibold transition-colors;
+  }
+
+  .btn-primary {
+    @apply btn bg-accent-teal text-white hover:bg-accent-teal/90 dark:text-navy-950;
+  }
+
+  .btn-secondary {
+    @apply btn border border-line bg-hover text-ink-primary hover:bg-hover/60;
+  }
+
+  .btn-danger {
+    @apply btn border border-accent-red/40 bg-accent-red/10 text-accent-red hover:bg-accent-red/20 dark:bg-accent-red/20 dark:hover:bg-accent-red/30;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .page-title {
+    @apply text-2xl font-bold tracking-tight text-ink-primary sm:text-3xl;
+  }
+
+  .page-subtitle {
+    @apply mt-1 text-sm text-ink-secondary;
+  }
+
+  .explanation-text {
+    white-space: pre-line;
+    line-height: 1.55;
+  }
+
+  .explanation-step {
+    margin-bottom: 0.75rem;
+  }
+
+  .explanation-step p {
+    margin: 0.25rem 0 0;
+  }
+
+  .sr-only-focusable:focus {
+    @apply not-sr-only fixed left-4 top-4 z-50 rounded bg-accent-teal px-3 py-2 text-white dark:text-navy-950;
+  }
+}
+
+/* Scrollbar polish — themed via CSS variables */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--scrollbar-track));
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--scrollbar-thumb));
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--scrollbar-thumb-hover));
+}
